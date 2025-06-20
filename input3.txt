@@ -1,0 +1,5 @@
+20 15
+
+Island1 8 5 5
+Island2 10 6 6
+Island3 9 7 7

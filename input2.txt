@@ -1,0 +1,5 @@
+25 25
+
+Village1 8 1 1
+Village2 10 2 2
+Village3 7 3 1

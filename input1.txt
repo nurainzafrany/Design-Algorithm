@@ -1,5 +1,4 @@
-30 40
-
-TownA 10 2 3
-TownB 15 5 4
-TownC 8 1 7
+100 50
+TownA 10 3 4
+TownB 20 4 3
+TownC 15 2 5

@@ -1,5 +1,4 @@
-25 25
-
-Village1 8 1 1
-Village2 10 2 2
-Village3 7 3 1
+100 20
+TownA 10 3 4
+TownB 15 5 5
+TownC 15 4 3

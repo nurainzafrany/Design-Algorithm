@@ -514,10 +514,16 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#about">About</a></li>
                     <li><a href="#team">Team</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#problem">Problem</a></li>
+                    <li><a href="#objectives">Objectives</a></li>
+                    <li><a href="#specification">Specification</a></li>
                     <li><a href="#simulator">Simulator</a></li>
                     <li><a href="#algorithm">Algorithm</a></li>
+                    <li><a href="#analysis">Analysis</a></li>
+                    <li><a href="#conclusion">Conclusion</a></li>
+                    <li><a href="#references">References</a></li>
                 </ul>
             </nav>
         </div>
@@ -528,6 +534,44 @@
             <h2 class="animated">Revolutionizing Emergency Response with Drone Technology</h2>
             <p class="animated delay-1">Our advanced algorithm optimizes drone delivery routes to provide critical supplies to flood-affected areas when traditional transportation fails.</p>
             <a href="#simulator" class="btn btn-accent animated delay-2">Try Simulator</a>
+        </div>
+    </section>
+
+    <section id="team" class="section team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Team</h2>
+            </div>
+            <div class="team-members">
+                <div class="member-card animated">
+                    <div class="member-info">
+                        <h3>Nurain Zafrany</h3>
+                        <p>Team Leader</p>
+                        <p>225554</p>
+                    </div>
+                </div>
+                <div class="member-card animated delay-1">
+                    <div class="member-info">
+                        <h3>Nurfara Hanah</h3>
+                        <p>Algorithm Specialist</p>
+                        <p>225310</p>
+                    </div>
+                </div>
+                <div class="member-card animated delay-2">
+                    <div class="member-info">
+                        <h3>Farhah Natasha</h3>
+                        <p>Testing Engineer</p>
+                        <p>225567</p>
+                    </div>
+                </div>
+                <div class="member-card animated delay-1">
+                    <div class="member-info">
+                        <h3>Nur Aleeya 'Izzati</h3>
+                        <p>UI/UX Designer</p>
+                        <p>223671</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -562,43 +606,304 @@
         </div>
     </section>
 
-    <section id="team" class="section team">
+    <!-- Add this new section after the About section and before the Team section -->
+    <section id="problem" class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Our Team</h2>
+                <h2>Problem Definition</h2>
             </div>
-            <div class="team-members">
-                <div class="member-card animated">
-                    <div class="member-img" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
-                    <div class="member-info">
-                        <h3>Nuraina Zafrany</h3>
-                        <p>Team Leader</p>
-                        <p>225554</p>
+            <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);">
+                <p style="margin-bottom: 1.5rem;">Southeast Asia has also seen more intense floods in recent years as a result of climate changes and other erratic weather conditions. Such floods can be very destructive to infrastructure by washing away roads, destroying bridges, and leaving whole towns isolated. In these cases of emergency, responding time of food, water, and medicines are of great importance. But when physical access is restricted, the traditional delivery method proves useless. In this situation drones provide an efficient and mobile approach.</p>
+
+                <p style="margin-bottom: 1.5rem;">The issue emerges on how to utilize a few numbers of drones to supply to all the affected towns effectively. An individual drone has a limit to the amount of help that it carries and limited ranges of flight using batteries and a particular town needs a given number of assistance. In addition, the drones will need to fly back to the base station once they have delivered the goods hence route optimization is critical to saving energy and time.</p>
+
+                <p style="margin-bottom: 1.5rem;">The task is to create the algorithm that designs the most economical set of the deliveries paths that enables drones with the possibility to pass through the towns, deliver necessary resources, and guard to base without overloading or infringing their limit. The algorithm also has to make sure that as many towns as possible are reached and the total travel distance minimized.</p>
+
+                <h4 style="color: var(--primary); margin-bottom: 1rem;">Graph Representation</h4>
+                <p style="margin-bottom: 1.5rem;">To fix this, we represent the region of interest as a graph:</p>
+                <ul style="margin-bottom: 1.5rem; padding-left: 2rem;">
+                    <li>The nodes are presented as towns and the base, which are coordinated and need supplies.</li>
+                    <li>Edges are lines encoding a direct flight distance, weighted by the Euclidean distances.</li>
+                    <li>Discovering the most appropriate delivery path is practically a variant of the Traveling Salesman Problem (TSP) with extra two restrictions, namely capacity and range, thus it is a constrained combinatorial optimization problem.</li>
+                </ul>
+
+                <h4 style="color: var(--primary); margin-bottom: 1rem;">System Output Requirements</h4>
+                <p style="margin-bottom: 0.5rem;">Necessary output of the system is:</p>
+                <ul style="margin-bottom: 1.5rem; padding-left: 2rem;">
+                    <li>The towns of visit per route</li>
+                    <li>Total miles and processing time per run.</li>
+                    <li>Town-wise level of supply achievement</li>
+                    <li>The measurements of efficiency, e.g., the consumption of energy</li>
+                </ul>
+
+                <p>Theoretically and practically, this is a serious problem: it presents an implementation of the reality of actual logistics coupled with algorithmic solution-solving, exposing the importance of algorithm formulation in systems designated as life-critical.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this new section after the Problem Definition section and before the Team section -->
+    <section id="objectives" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Project Objectives</h2>
+            </div>
+            <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);">
+                <p style="margin-bottom: 1.5rem;">The primary aims of this project revolve around the designing and analysis of an appropriate algorithm in optimizing emergency drone delivery on flood-stricken areas. The following are objectives agreed upon on this study:</p>
+
+                <div class="features" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); margin-top: 2rem;">
+                    <div class="feature-card" style="text-align: left; padding: 1.5rem;">
+                        <h3 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+                            <i class="fas fa-project-diagram" style="margin-right: 10px; color: var(--secondary);"></i>
+                            Graph Representation
+                        </h3>
+                        <p>To represent the disaster area in the form of a graph in which every town and the base station will be a node and the available flight routes will be measured using geographic distances as weighted edges.</p>
+                    </div>
+
+                    <div class="feature-card" style="text-align: left; padding: 1.5rem;">
+                        <h3 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+                            <i class="fas fa-code-branch" style="margin-right: 10px; color: var(--secondary);"></i>
+                            Algorithm Analysis
+                        </h3>
+                        <p>To discuss the different paradigms of algorithms: Sorting, Divide and Conquer, Dynamic Programming, Greedy and Graph algorithms to decide which of them is the most appropriate to solve a drone route optimization problem.</p>
+                    </div>
+
+                    <div class="feature-card" style="text-align: left; padding: 1.5rem;">
+                        <h3 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+                            <i class="fas fa-cogs" style="margin-right: 10px; color: var(--secondary);"></i>
+                            Implementation
+                        </h3>
+                        <p>To create an effective solution in Java, it is important to apply the chosen algorithm that would be able to calculate the optimal delivery routes with a realistic set of constraints: drones have limited reach and cargo weight.</p>
+                    </div>
+
+                    <div class="feature-card" style="text-align: left; padding: 1.5rem;">
+                        <h3 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+                            <i class="fas fa-chart-line" style="margin-right: 10px; color: var(--secondary);"></i>
+                            Performance Evaluation
+                        </h3>
+                        <p>To justify that the proposed algorithm is correct and study its performance, including its time complexity in the best, average and worst-case scenario using the asymptotic notation.</p>
                     </div>
                 </div>
-                <div class="member-card animated delay-1">
-                    <div class="member-img" style="background-image: url('https://randomuser.me/api/portraits/women/68.jpg');"></div>
-                    <div class="member-info">
-                        <h3>Nurfara Hanah</h3>
-                        <p>Algorithm Specialist</p>
-                        <p>225310</p>
+
+                <p style="margin-top: 2rem;">The goals are meant to guarantee that the eventual algorithmic solution is both implementable and sound in theory thereby facilitating efficient emergency response planning that is scalable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this new section after the Objectives section and before the Algorithm Paradigm Analysis section -->
+    <section id="specification" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Problem Specification</h2>
+            </div>
+            <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);">
+                <p style="margin-bottom: 1.5rem;">In response to a widespread flood disaster in Southeast Asia, many rural towns have become inaccessible due to destroyed infrastructure. The use of drones has been proposed as a modern and efficient solution to deliver emergency supplies. However, drone deployment is limited by two major operational constraints: limited flight range and supply load capacity. Thus, a well-defined optimization model is necessary to determine the most efficient delivery route that ensures the highest number of towns receive aid within the drone's constraints. This problem requires a combinatorial solution that integrates spatial modeling, route optimization, and constraint satisfaction within a computational framework.</p>
+
+                <div style="margin-top: 2rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem; border-bottom: 2px solid var(--secondary); padding-bottom: 0.5rem; display: inline-block;">4.1 Input Specifications</h3>
+                    <p style="margin-bottom: 1.5rem;">The input to the model consists of a set of towns and the specification of a drone. Each town is described using the following data types:</p>
+
+                    <div style="background-color: #f8f9fa; padding: 1.5rem; border-radius: 5px; margin-bottom: 1.5rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Town Data Structure</h4>
+                        <ul style="margin-bottom: 1rem; padding-left: 2rem;">
+                            <li><strong>String name:</strong> A unique identifier for each town.</li>
+                            <li><strong>int x, y:</strong> Integer values representing 2D Cartesian coordinates.</li>
+                            <li><strong>int supplyNeeded:</strong> The required number of emergency kits.</li>
+                        </ul>
+
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Drone Specification</h4>
+                        <ul style="margin-bottom: 0; padding-left: 2rem;">
+                            <li><strong>int maxRange:</strong> Maximum one-charge round-trip range.</li>
+                            <li><strong>int maxCapacity:</strong> Maximum number of emergency kits the drone can carry.</li>
+                        </ul>
+                    </div>
+
+                    <p style="margin-bottom: 1.5rem;">All towns are stored in a <code>List&lt;Town&gt;</code>, and distances between towns are precomputed and stored in a <code>double[][] distanceMatrix</code>, based on Euclidean geometry.</p>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem; border-bottom: 2px solid var(--secondary); padding-bottom: 0.5rem; display: inline-block;">4.2 Constraints</h3>
+                    <p style="margin-bottom: 1.5rem;">To ensure feasible and safe delivery missions, the following constraints are enforced in the model:</p>
+
+                    <div class="features" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 1rem;">
+                        <div class="feature-card" style="text-align: left; padding: 1.5rem;">
+                            <h3 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+                                <i class="fas fa-weight-hanging" style="margin-right: 10px; color: var(--secondary);"></i>
+                                Capacity Constraint
+                            </h3>
+                            <p>The cumulative amount of supplies delivered during a trip must not exceed the drone's maximum load (<code>maxCapacity</code>).</p>
+                        </div>
+
+                        <div class="feature-card" style="text-align: left; padding: 1.5rem;">
+                            <h3 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+                                <i class="fas fa-battery-three-quarters" style="margin-right: 10px; color: var(--secondary);"></i>
+                                Range Constraint
+                            </h3>
+                            <p>The total distance of a round-trip (from base to towns and back) must not exceed the drone's battery range (<code>maxRange</code>).</p>
+                        </div>
+
+                        <div class="feature-card" style="text-align: left; padding: 1.5rem;">
+                            <h3 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+                                <i class="fas fa-map-marker-check" style="margin-right: 10px; color: var(--secondary);"></i>
+                                Visit Constraint
+                            </h3>
+                            <p>Each town may only be visited once in a single route.</p>
+                        </div>
+
+                        <div class="feature-card" style="text-align: left; padding: 1.5rem;">
+                            <h3 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+                                <i class="fas fa-home" style="margin-right: 10px; color: var(--secondary);"></i>
+                                Return Constraint
+                            </h3>
+                            <p>The drone must always return to the base after completing the delivery route.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="member-card animated delay-2">
-                    <div class="member-img" style="background-image: url('https://randomuser.me/api/portraits/women/33.jpg');"></div>
-                    <div class="member-info">
-                        <h3>Farhah Natasha</h3>
-                        <p>Testing Engineer</p>
-                        <p>225567</p>
+
+                <div style="margin-top: 2rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem; border-bottom: 2px solid var(--secondary); padding-bottom: 0.5rem; display: inline-block;">4.3 Objective Function</h3>
+                    <p style="margin-bottom: 1.5rem;">The primary objective is to minimize the total distance of a valid round-trip delivery route that starts and ends at the base while delivering supplies to the maximum number of towns within the drone's operational limits. This is mathematically equivalent to minimizing the sum of the Euclidean distances between each consecutive town in the route, including the return to base.</p>
+
+                    <div style="background-color: #f8f9fa; padding: 1.5rem; border-radius: 5px;">
+                        <p style="margin-bottom: 1rem;">In the algorithm, this is achieved through recursive backtracking: the algorithm explores each valid route and calculates its total distance, keeping track of the shortest path that satisfies all constraints using a global variable <code>minDistance</code>. Optimization occurs by pruning infeasible branches and updating the best route whenever a better solution is found.</p>
+
+                        <div style="display: flex; align-items: center; margin-top: 1rem;">
+                            <div style="flex: 1; padding: 1rem; background-color: white; border-radius: 5px; margin-right: 1rem;">
+                                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Mathematical Formulation</h4>
+                                <p>Minimize: Σ d<sub>i,j</sub> for all (i,j) in route</p>
+                                <p>Subject to:</p>
+                                <ul style="padding-left: 1.5rem;">
+                                    <li>Σ supply<sub>i</sub> ≤ maxCapacity</li>
+                                    <li>Σ d<sub>i,j</sub> ≤ maxRange</li>
+                                    <li>Route starts and ends at base</li>
+                                </ul>
+                            </div>
+                            <div style="flex: 1; padding: 1rem; background-color: white; border-radius: 5px;">
+                                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Algorithm Variables</h4>
+                                <ul style="padding-left: 1.5rem;">
+                                    <li><code>minDistance</code>: Tracks shortest valid route</li>
+                                    <li><code>currentDistance</code>: Current path distance</li>
+                                    <li><code>currentLoad</code>: Current supplies carried</li>
+                                    <li><code>visited</code>: Tracks visited towns</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="member-card animated delay-1">
-                    <div class="member-img" style="background-image: url('https://randomuser.me/api/portraits/women/28.jpg');"></div>
-                    <div class="member-info">
-                        <h3>Nur Aleeya 'Izzati</h3>
-                        <p>UI/UX Designer</p>
-                        <p>223671</p>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this new section after the Algorithm Design section and before the Footer -->
+    <section id="analysis" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Algorithm Paradigm Analysis</h2>
+            </div>
+            <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);">
+                <p style="margin-bottom: 1.5rem;">When designing an efficient drone delivery system to deliver emergency supplies, we took into consideration a number of algorithms including Sorting, Divide and Conquer (DAC), Dynamic Programming (DP), Greedy, and Graph Algorithms. A review of their appropriateness in the solving of our problem, as well as their strengths and weaknesses is below.</p>
+
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                        <thead>
+                        <tr style="background-color: var(--primary); color: white;">
+                            <th style="padding: 12px 15px; text-align: left;">Solution Paradigm</th>
+                            <th style="padding: 12px 15px; text-align: left;">Strength</th>
+                            <th style="padding: 12px 15px; text-align: left;">Weakness</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 12px 15px; font-weight: 600; color: var(--primary);">Sorting</td>
+                            <td style="padding: 12px 15px;">
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    <li>Is useful in preprocessing, e.g. sorting the towns based on urgency, distance, or supply requirements.</li>
+                                    <li>Fast algorithm, e.g. Merge Sort and Quick Sort have a fast algorithmic time of O(n log n).</li>
+                                    <li>May be used in decision making with regard to delivery order.</li>
+                                </ul>
+                            </td>
+                            <td style="padding: 12px 15px;">
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    <li>Does not do route planning and does not graph, it is based delivery optimization.</li>
+                                    <li>Does not consider limiting properties, like drone battery or range.</li>
+                                    <li>Complex spatial relations among the towns cannot be modeled.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                            <td style="padding: 12px 15px; font-weight: 600; color: var(--primary);">Divide and Conquer (DAC)</td>
+                            <td style="padding: 12px 15px;">
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    <li>Divides jam-packed issues into smaller and solvable sub-regions.</li>
+                                    <li>Enables paralleling of drone flight paths in various areas.</li>
+                                    <li>Makes it possible to deal with large geographical areas.</li>
+                                </ul>
+                            </td>
+                            <td style="padding: 12px 15px;">
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    <li>Sub-solution merging can generate non-optima global routes.</li>
+                                    <li>Merging becomes complicated because of overlapping constraints such as battery life, range.</li>
+                                    <li>Needs vigilance in zone allocation so as to be efficient.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 12px 15px; font-weight: 600; color: var(--primary);">Dynamic Programming (DP)</td>
+                            <td style="padding: 12px 15px;">
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    <li>Makes the best solutions in case of overlapping subproblems.</li>
+                                    <li>Is able to model tract battery life and battery range and deliveries.</li>
+                                    <li>Applicable in the solution of complex problems such as word Traveling Salesman Problem (TSP).</li>
+                                </ul>
+                            </td>
+                            <td style="padding: 12px 15px;">
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    <li>Large graphs like exponentials have high time and space complexity.</li>
+                                    <li>Hard to scale to real time or large-scale emergencies.</li>
+                                    <li>Difficult to apply as opposed to greedy or graph methods.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                            <td style="padding: 12px 15px; font-weight: 600; color: var(--primary);">Greedy</td>
+                            <td style="padding: 12px 15px;">
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    <li>Easy and quick, appropriate during emergency cases.</li>
+                                    <li>Derives satisfactorily good approximation solutions in time.</li>
+                                    <li>Competent in situations where speed of reaction is an important concern.</li>
+                                </ul>
+                            </td>
+                            <td style="padding: 12px 15px;">
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    <li>Nothing ensures global optimality.</li>
+                                    <li>Able to deliver poor local decisions, which impact the entire route.</li>
+                                    <li>Can be inefficient with complex constraints.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 15px; font-weight: 600; color: var(--primary);">Graph Algorithm</td>
+                            <td style="padding: 12px 15px;">
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    <li>Towns and paths (nodes and edges) are naturally modeled.</li>
+                                    <li>Such well-known algorithms like Dijkstra, A*, MST, TSP aid in route optimization.</li>
+                                    <li>Makes it easy to visualize, and periodically update things as conditions vary.</li>
+                                </ul>
+                            </td>
+                            <td style="padding: 12px 15px;">
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    <li>The solution of some problems(e.g., TSP) is NP-hard, i.e. there exists no feasible solution to the problem on a large graph.</li>
+                                    <li>Have to do with scalability with heuristic or approximate solutions.</li>
+                                    <li>The more the towns and redistribution routes, the higher the complexity.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 2rem; background-color: #f8f9fa; padding: 1.5rem; border-radius: 5px;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Our Selected Approach</h4>
+                    <p>After careful analysis of these paradigms, we determined that a <strong>Graph Algorithm approach with recursive backtracking</strong> provides the best balance between optimality and computational feasibility for our specific problem constraints. This approach naturally models the geographic relationships between towns while respecting the drone's operational limitations.</p>
                 </div>
             </div>
         </div>
@@ -676,29 +981,67 @@
             <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);">
                 <h3 style="color: var(--primary); margin-bottom: 1rem;">Recursive Backtracking for TSP with Constraints</h3>
                 <p style="margin-bottom: 1.5rem;">Our solution implements a recursive backtracking approach tailored to the Traveling Salesman Problem (TSP) with additional constraints for the drone's battery range and supply capacity.</p>
-                
+
+                <!-- Replace the existing pseudocode div in the Algorithm Design section with this -->
                 <div style="margin-bottom: 2rem;">
-                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Pseudocode</h4>
-                    <pre style="background-color: #f8f9fa; padding: 1rem; border-radius: 5px; overflow-x: auto;">
-function tsp(currentTown, path, distanceSoFar, loadSoFar):
-    if all towns visited:
-        totalDistance = distanceSoFar + distanceToBase
-        if totalDistance < minDistance and within drone range:
-            update bestRoute and minDistance
-        return
-
-    for each unvisited town:
-        newLoad = loadSoFar + supplyNeeded[town]
-        newDistance = distanceSoFar + distanceMatrix[currentTown][town]
-
-        if newLoad ≤ drone.maxCapacity and newDistance ≤ drone.maxRange:
-            mark town as visited
-            add town to path
-            tsp(town, path, newDistance, newLoad)
-            backtrack (unmark town and remove from path)
-                    </pre>
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Algorithm Flowchart</h4>
+                    <div style="background-color: #f8f9fa; padding: 1.5rem; border-radius: 5px; text-align: center;">
+                        <img src="flowchart.png.jpg" alt="Drone Delivery Algorithm Flowchart" style="max-width: 100%; height: auto; border: 1px solid #ddd;">
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: #7f8c8d;">Figure: Flowchart of the recursive backtracking algorithm for drone delivery optimization</p>
+                    </div>
                 </div>
-                
+
+                <!-- Add this inside the Algorithm Design section, after the Pseudocode section -->
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Algorithm Components</h4>
+                    <div class="features" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 1rem;">
+                        <div class="feature-card" style="text-align: left; padding: 1.5rem;">
+                            <h3 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+                                <i class="fas fa-project-diagram" style="margin-right: 10px; color: var(--secondary);"></i>
+                                Graph Representation
+                            </h3>
+                            <p>Towns are modeled as nodes with coordinates (x,y) and supply requirements. Edges represent direct flight paths weighted by Euclidean distance between towns.</p>
+                        </div>
+
+                        <div class="feature-card" style="text-align: left; padding: 1.5rem;">
+                            <h3 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+                                <i class="fas fa-undo" style="margin-right: 10px; color: var(--secondary);"></i>
+                                Recursive Backtracking
+                            </h3>
+                            <p>Systematically explores all possible routes while backtracking when constraints are violated, ensuring no valid path is missed.</p>
+                        </div>
+
+                        <div class="feature-card" style="text-align: left; padding: 1.5rem;">
+                            <h3 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+                                <i class="fas fa-cut" style="margin-right: 10px; color: var(--secondary);"></i>
+                                Constraint Pruning
+                            </h3>
+                            <p>Immediately discards paths that exceed drone range or capacity, significantly reducing the search space.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Optimization Techniques</h4>
+                    <ul style="margin-bottom: 1rem; padding-left: 2rem;">
+                        <li><strong>Early Termination:</strong> If a complete route is found that delivers to all towns within constraints, the search can terminate immediately.</li>
+                        <li><strong>Path Length Tracking:</strong> Maintains the shortest valid path found so far, allowing pruning of longer paths during exploration.</li>
+                        <li><strong>Supply Prioritization:</strong> Towns can be sorted by urgency or supply requirements to guide the search toward critical deliveries first.</li>
+                        <li><strong>Memoization:</strong> Caches previously computed subproblems to avoid redundant calculations in overlapping routes.</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Real-World Adaptations</h4>
+                    <p style="margin-bottom: 1rem;">To handle practical emergency scenarios, the algorithm includes several adaptations:</p>
+                    <ul style="margin-bottom: 1rem; padding-left: 2rem;">
+                        <li><strong>Partial Deliveries:</strong> When full coverage isn't possible, prioritizes routes that serve the most critical towns.</li>
+                        <li><strong>Multiple Drones:</strong> Can be extended to coordinate multiple drones by partitioning towns among available drones.</li>
+                        <li><strong>Dynamic Updates:</strong> The graph can be updated in real-time as new information about town needs or drone availability arrives.</li>
+                        <li><strong>Terrain Factors:</strong> Edge weights can incorporate terrain difficulty or weather conditions beyond simple distance.</li>
+                    </ul>
+                </div>
+
                 <div style="margin-bottom: 2rem;">
                     <h4 style="color: var(--primary); margin-bottom: 1rem;">Algorithm Analysis</h4>
                     <p style="margin-bottom: 1rem;"><strong>Time Complexity:</strong></p>
@@ -730,6 +1073,67 @@ function tsp(currentTown, path, distanceSoFar, loadSoFar):
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this new section before the Footer section -->
+    <section id="conclusion" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conclusion</h2>
+            </div>
+            <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);">
+                <p style="margin-bottom: 1.5rem;">In this project, we have addressed a real time problem which is how to optimize delivery of emergency supplies using drones in the flood affected areas in the event where the conventional transportation routes are not feasible. By representing the problem as a restricted form of the Traveling Salesman Problem (TSP), we maximized the use of system search algorithms that rely on graphs with several steps of recursive backtracking to find the delivery path that would be most efficient.</p>
+
+                <p style="margin-bottom: 1.5rem;">By design and analysis, we managed to design an operational Java implementation that unites drone constraints like the reach and ability to carry cargo, so that every solution violates practical operational constraints. The algorithm was successfully tested with different possible scenarios to ensure correctness or robustness of the algorithm to find optimal (or feasible) delivery routes, and to cover the failure cases through graceful error handling when the limits were exceeded.</p>
+
+                <p style="margin-bottom: 1.5rem;">Our solution algorithm was not only an algorithmically correct solution but it could be also practically adjusted and applied to dynamic and high stakes activities like post-disaster relief. Graph algorithms gave clarity and flexibility as well as the capability to either expand or adapt to new information.</p>
+
+                <p style="margin-bottom: 1.5rem;">Finally, the case of this project indicates the efficacy of algorithmic thinking to address life-altering logistical problems. It also portrays that we can utilize and implement the central concepts of the course (complexity analysis, data design structures, and problem modeling) to provide a functional system that could sustain decision-making in real-life emergency situations.</p>
+
+                <div style="margin-top: 2rem; background-color: #f8f9fa; padding: 1.5rem; border-radius: 5px;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Future Enhancements</h4>
+                    <ul style="margin-bottom: 1rem; padding-left: 2rem;">
+                        <li>Integration with real-time weather data and terrain mapping</li>
+                        <li>Extension to multiple drone coordination</li>
+                        <li>Machine learning for predictive route optimization</li>
+                        <li>Mobile application for field operatives</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Add this new section before the Footer section -->
+    <section id="references" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>References</h2>
+            </div>
+            <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);">
+                <ol style="list-style-type: decimal; padding-left: 2rem;">
+                    <li style="margin-bottom: 1rem;">
+                        Feng, C. (2024). Design of Logistics Sorting Algorithm Based on Deep Learning and Sampling Evaluation. <em>International Journal of Computational Intelligence Systems</em>, 17(1). <a href="https://doi.org/10.1007/s44196-024-00449-0" target="_blank" style="color: var(--secondary);">https://doi.org/10.1007/s44196-024-00449-0</a>.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Shuaibu, A. S., Mahmoud, A. S., & Sheltami, T. R. (2025). A Review of Last-Mile Delivery Optimization: Strategies, Technologies, Drone Integration, and Future Trends. <em>Drones</em>, 9(3), 158. <a href="https://doi.org/10.3390/drones9030158" target="_blank" style="color: var(--secondary);">https://doi.org/10.3390/drones9030158</a>.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Stefano Leonori, Maurizio Paschero, Fabio, & Rizzi, A. (2019). Optimization strategies for Microgrid energy management systems by Genetic Algorithms. <em>Applied Soft Computing</em>, 86, 105903–105903. <a href="https://doi.org/10.1016/j.asoc.2019.105903" target="_blank" style="color: var(--secondary);">https://doi.org/10.1016/j.asoc.2019.105903</a>.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Gjorshevski, H., Trivodaliev, K., Kosovic, I. N., Kalajdziski, S., & Stojkoska, B. R. (2018). Dynamic Programming Approach for Drone Routes Planning. <em>2018 26th Telecommunications Forum (TELFOR)</em>, 1–4. <a href="https://doi.org/10.1109/telfor.2018.8611915" target="_blank" style="color: var(--secondary);">https://doi.org/10.1109/telfor.2018.8611915</a>.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Jana, S., & Mandal, P. S. (2023). Approximation Algorithms for Drone Delivery Packing Problem. <em>ArXiv (Cornell University)</em>, 262–269. <a href="https://doi.org/10.1145/3571306.3571411" target="_blank" style="color: var(--secondary);">https://doi.org/10.1145/3571306.3571411</a>.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Mohapatra, S., & Nayak, S. K. (2024). Greedy Algorithms for Heterogeneous Drone Delivery Packing in the Cloud-assisted Intelligent Transportation System. <em>2024 16th International Conference on COMmunication Systems & NETworkS (COMSNETS)</em>, 833–841. <a href="https://doi.org/10.1109/comsnets59351.2024.10427308" target="_blank" style="color: var(--secondary);">https://doi.org/10.1109/comsnets59351.2024.10427308</a>.
+                    </li>
+                    <li style="margin-bottom: 1rem;">
+                        Dijkstra, E. W. (1959). A note on two problems in connection with graphs. <em>Numerische Mathematik</em>, 1(1), 269–271. <a href="https://doi.org/10.1007/bf01386390" target="_blank" style="color: var(--secondary);">https://doi.org/10.1007/bf01386390</a>.
+                    </li>
+                </ol>
             </div>
         </div>
     </section>

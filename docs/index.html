@@ -1,1 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Drone Delivery System</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1581093196278-8a6928a6b5a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .team {
+            background-color: #f8f9fa;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .member-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-img {
+            height: 250px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+        }
+        
+        .member-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .member-info p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .simulator {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .simulator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .simulator-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .town-inputs {
+            margin-top: 1rem;
+        }
+        
+        .town-input {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .add-town {
+            margin-top: 10px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .remove-town {
+            background-color: var(--danger);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .simulator-visual {
+            position: relative;
+            height: 500px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        #drone-map {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .results {
+            display: none;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        
+        .result-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-item h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-item p {
+            color: #7f8c8d;
+        }
+        
+        .route-visual {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1.5rem;
+                justify-content: center;
+            }
+            
+            .simulator-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/2489/2489077.png" alt="Drone Delivery Logo">
+                <div class="logo-text">
+                    <h1>Emergency Drone Delivery</h1>
+                    <p>Optimizing disaster relief with AI</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#simulator">Simulator</a></li>
+                    <li><a href="#algorithm">Algorithm</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <section class="hero">
+        <div class="container">
+            <h2 class="animated">Revolutionizing Emergency Response with Drone Technology</h2>
+            <p class="animated delay-1">Our advanced algorithm optimizes drone delivery routes to provide critical supplies to flood-affected areas when traditional transportation fails.</p>
+            <a href="#simulator" class="btn btn-accent animated delay-2">Try Simulator</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About The Project</h2>
+            </div>
+            <div class="features">
+                <div class="feature-card animated">
+                    <div class="feature-icon">
+                        <i class="fas fa-flood"></i>
+                    </div>
+                    <h3>Disaster Response</h3>
+                    <p>During large-scale floods in Southeast Asia, rural towns become isolated when infrastructure is damaged. Our system ensures they receive emergency supplies.</p>
+                </div>
+                <div class="feature-card animated delay-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-drone-alt"></i>
+                    </div>
+                    <h3>Drone Optimization</h3>
+                    <p>We solve the critical problem of efficiently using limited drones to deliver supplies to all affected towns while respecting operational constraints.</p>
+                </div>
+                <div class="feature-card animated delay-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Graph Algorithm</h3>
+                    <p>Using graph theory and recursive backtracking, we model towns as nodes and flight paths as edges to find optimal delivery routes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Team</h2>
+            </div>
+            <div class="team-members">
+                <div class="member-card animated">
+                    <div class="member-img" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
+                    <div class="member-info">
+                        <h3>Nuraina Zafrany</h3>
+                        <p>Team Leader</p>
+                        <p>225554</p>
+                    </div>
+                </div>
+                <div class="member-card animated delay-1">
+                    <div class="member-img" style="background-image: url('https://randomuser.me/api/portraits/women/68.jpg');"></div>
+                    <div class="member-info">
+                        <h3>Nurfara Hanah</h3>
+                        <p>Algorithm Specialist</p>
+                        <p>225310</p>
+                    </div>
+                </div>
+                <div class="member-card animated delay-2">
+                    <div class="member-img" style="background-image: url('https://randomuser.me/api/portraits/women/33.jpg');"></div>
+                    <div class="member-info">
+                        <h3>Farhah Natasha</h3>
+                        <p>Testing Engineer</p>
+                        <p>225567</p>
+                    </div>
+                </div>
+                <div class="member-card animated delay-1">
+                    <div class="member-img" style="background-image: url('https://randomuser.me/api/portraits/women/28.jpg');"></div>
+                    <div class="member-info">
+                        <h3>Nur Aleeya 'Izzati</h3>
+                        <p>UI/UX Designer</p>
+                        <p>223671</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="simulator" class="section simulator">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Delivery Route Simulator</h2>
+            </div>
+            <div class="simulator-container">
+                <div class="simulator-form">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Configure Your Drone Mission</h3>
+                    <form id="drone-form">
+                        <div class="form-group">
+                            <label for="drone-range">Drone Maximum Range (km)</label>
+                            <input type="number" id="drone-range" min="1" value="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="drone-capacity">Drone Maximum Capacity (kg)</label>
+                            <input type="number" id="drone-capacity" min="1" value="50" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Towns to Deliver Supplies</label>
+                            <div class="town-inputs" id="town-inputs">
+                                <div class="town-input">
+                                    <input type="text" placeholder="Town name" required>
+                                    <input type="number" placeholder="Supplies" min="1" required>
+                                    <input type="number" placeholder="X coordinate" required>
+                                    <input type="number" placeholder="Y coordinate" required>
+                                </div>
+                            </div>
+                            <button type="button" class="add-town" id="add-town">Add Town</button>
+                            <button type="button" class="remove-town" id="remove-town">Remove Town</button>
+                        </div>
+                        <button type="submit" class="btn">Calculate Optimal Route</button>
+                    </form>
+                    
+                    <div class="results" id="results">
+                        <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Mission Results</h3>
+                        <div class="result-item">
+                            <h3>Mission Status</h3>
+                            <p id="mission-status">Calculating...</p>
+                        </div>
+                        <div class="result-item">
+                            <h3>Optimal Route</h3>
+                            <p id="optimal-route">Base → Town A → Town B → Base</p>
+                        </div>
+                        <div class="result-item">
+                            <h3>Total Distance</h3>
+                            <p id="total-distance">120 km</p>
+                        </div>
+                        <div class="result-item">
+                            <h3>Capacity Used</h3>
+                            <p id="capacity-used">45 kg</p>
+                        </div>
+                        <div class="route-visual">
+                            <h4>Route Visualization</h4>
+                            <div id="route-map" style="height: 200px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="simulator-visual">
+                    <div id="drone-map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="algorithm" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Algorithm Design</h2>
+            </div>
+            <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">Recursive Backtracking for TSP with Constraints</h3>
+                <p style="margin-bottom: 1.5rem;">Our solution implements a recursive backtracking approach tailored to the Traveling Salesman Problem (TSP) with additional constraints for the drone's battery range and supply capacity.</p>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Pseudocode</h4>
+                    <pre style="background-color: #f8f9fa; padding: 1rem; border-radius: 5px; overflow-x: auto;">
+function tsp(currentTown, path, distanceSoFar, loadSoFar):
+    if all towns visited:
+        totalDistance = distanceSoFar + distanceToBase
+        if totalDistance < minDistance and within drone range:
+            update bestRoute and minDistance
+        return
+
+    for each unvisited town:
+        newLoad = loadSoFar + supplyNeeded[town]
+        newDistance = distanceSoFar + distanceMatrix[currentTown][town]
+
+        if newLoad ≤ drone.maxCapacity and newDistance ≤ drone.maxRange:
+            mark town as visited
+            add town to path
+            tsp(town, path, newDistance, newLoad)
+            backtrack (unmark town and remove from path)
+                    </pre>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Algorithm Analysis</h4>
+                    <p style="margin-bottom: 1rem;"><strong>Time Complexity:</strong></p>
+                    <ul style="margin-bottom: 1rem; padding-left: 2rem;">
+                        <li>Worst-case: O(n!) - When no pruning occurs (visits all permutations)</li>
+                        <li>Best-case: O(n) - When constraints limit to a single valid path</li>
+                        <li>Average case: Depends on pruning effectiveness</li>
+                    </ul>
+                    <p style="margin-bottom: 1rem;"><strong>Space Complexity:</strong> O(n) for recursion stack and storage of visited towns</p>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Test Cases</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+                        <div style="background-color: #f8f9fa; padding: 1rem; border-radius: 5px;">
+                            <h5 style="color: var(--primary); margin-bottom: 0.5rem;">Basic Success Case</h5>
+                            <p>3 towns within range and capacity</p>
+                            <p><strong>Result:</strong> Success</p>
+                        </div>
+                        <div style="background-color: #f8f9fa; padding: 1rem; border-radius: 5px;">
+                            <h5 style="color: var(--primary); margin-bottom: 0.5rem;">Over Capacity</h5>
+                            <p>Total supplies exceed drone capacity</p>
+                            <p><strong>Result:</strong> Failure</p>
+                        </div>
+                        <div style="background-color: #f8f9fa; padding: 1rem; border-radius: 5px;">
+                            <h5 style="color: var(--primary); margin-bottom: 0.5rem;">Over Range</h5>
+                            <p>Towns too far for drone range</p>
+                            <p><strong>Result:</strong> Failure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Emergency Drone Delivery</h3>
+                    <p>Optimizing disaster relief operations through advanced algorithms and drone technology.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Project</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#simulator">Route Simulator</a></li>
+                        <li><a href="#algorithm">Algorithm</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Course Information</h3>
+                    <ul>
+                        <li>CSC4202 - Design and Analysis of Algorithm</li>
+                        <li>Semester 2, 2024/2025</li>
+                        <li>Lecturer: Prof. Madya. Datin Dr. Norwati Mustapha</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Emergency Drone Delivery System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize map
+        let map = L.map('drone-map').setView([3.1390, 101.6869], 7); // Default to Kuala Lumpur
+        
+        // Add tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        // Add base marker
+        let baseMarker = L.marker([3.1390, 101.6869], {
+            icon: L.divIcon({
+                html: '<i class="fas fa-home" style="color: #e74c3c; font-size: 24px;"></i>',
+                iconSize: [24, 24],
+                className: 'map-icon'
+            })
+        }).addTo(map);
+        baseMarker.bindPopup("Base Station").openPopup();
+        
+        // Town counter
+        let townCounter = 1;
+        
+        // Add town button
+        document.getElementById('add-town').addEventListener('click', function() {
+            const townInputs = document.getElementById('town-inputs');
+            const newTown = document.createElement('div');
+            newTown.className = 'town-input';
+            newTown.innerHTML = `
+                <input type="text" placeholder="Town name" value="Town ${String.fromCharCode(64 + townCounter)}" required>
+                <input type="number" placeholder="Supplies" min="1" value="${Math.floor(Math.random() * 20) + 5}" required>
+                <input type="number" placeholder="X coordinate" value="${(Math.random() * 2) + 2}" step="0.0001" required>
+                <input type="number" placeholder="Y coordinate" value="${(Math.random() * 2) + 100}" step="0.0001" required>
+            `;
+            townInputs.appendChild(newTown);
+            townCounter++;
+        });
+        
+        // Remove town button
+        document.getElementById('remove-town').addEventListener('click', function() {
+            const townInputs = document.getElementById('town-inputs');
+            if (townInputs.children.length > 1) {
+                townInputs.removeChild(townInputs.lastChild);
+                townCounter--;
+            }
+        });
+        
+        // Form submission
+        document.getElementById('drone-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get drone specs
+            const droneRange = parseFloat(document.getElementById('drone-range').value);
+            const droneCapacity = parseFloat(document.getElementById('drone-capacity').value);
+            
+            // Get towns data
+            const townInputs = document.getElementById('town-inputs').children;
+            const towns = [];
+            
+            for (let i = 0; i < townInputs.length; i++) {
+                const inputs = townInputs[i].querySelectorAll('input');
+                towns.push({
+                    name: inputs[0].value,
+                    supply: parseFloat(inputs[1].value),
+                    x: parseFloat(inputs[2].value),
+                    y: parseFloat(inputs[3].value)
+                });
+            }
+            
+            // Simulate calculation (in a real app, this would call your Java algorithm)
+            setTimeout(() => {
+                // Random success/failure for demo
+                const success = Math.random() > 0.3;
+                
+                // Update results
+                document.getElementById('mission-status').textContent = success ? 
+                    '✅ SUCCESS – All towns reached within one trip.' : 
+                    '❌ FAILURE – Drone range or capacity exceeded.';
+                
+                document.getElementById('mission-status').style.color = success ? 'var(--success)' : 'var(--danger)';
+                
+                if (success) {
+                    // Generate a random route for demo
+                    let route = 'Base';
+                    let totalDistance = 0;
+                    let totalSupplies = 0;
+                    
+                    // Clear previous markers and lines
+                    map.eachLayer(layer => {
+                        if (layer !== baseMarker && layer instanceof L.Marker || layer instanceof L.Polyline) {
+                            map.removeLayer(layer);
+                        }
+                    });
+                    
+                    // Add base to map
+                    const baseLatLng = [3.1390, 101.6869];
+                    const latLngs = [baseLatLng];
+                    
+                    // Add towns to route
+                    const visitedTowns = [...towns];
+                    while (visitedTowns.length > 0) {
+                        const randomIndex = Math.floor(Math.random() * visitedTowns.length);
+                        const town = visitedTowns[randomIndex];
+                        
+                        // Add to route string
+                        route += ` → ${town.name}`;
+                        
+                        // Add to total supplies
+                        totalSupplies += town.supply;
+                        
+                        // Add marker to map
+                        const townLatLng = [town.x, town.y];
+                        latLngs.push(townLatLng);
+                        
+                        L.marker(townLatLng, {
+                            icon: L.divIcon({
+                                html: '<i class="fas fa-map-marker-alt" style="color: #3498db; font-size: 24px;"></i>',
+                                iconSize: [24, 24],
+                                className: 'map-icon'
+                            })
+                        }).addTo(map).bindPopup(`${town.name}<br>Supplies: ${town.supply}kg`);
+                        
+                        // Remove from array
+                        visitedTowns.splice(randomIndex, 1);
+                    }
+                    
+                    // Return to base
+                    route += ' → Base';
+                    latLngs.push(baseLatLng);
+                    
+                    // Calculate random distance (for demo)
+                    totalDistance = (Math.random() * 80) + 40;
+                    
+                    // Update UI
+                    document.getElementById('optimal-route').textContent = route;
+                    document.getElementById('total-distance').textContent = `${totalDistance.toFixed(2)} km`;
+                    document.getElementById('capacity-used').textContent = `${totalSupplies} kg`;
+                    
+                    // Draw route on map
+                    L.polyline(latLngs, {color: '#e74c3c'}).addTo(map);
+                    
+                    // Fit map to bounds
+                    map.fitBounds(latLngs);
+                    
+                    // Also update the small map in results
+                    updateRouteMap(latLngs);
+                }
+                
+                // Show results
+                document.getElementById('results').style.display = 'block';
+            }, 1500);
+        });
+        
+        // Function to update the small route map in results
+        function updateRouteMap(latLngs) {
+            const routeMap = L.map('route-map').setView(latLngs[0], 8);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(routeMap);
+            
+            // Add base marker
+            L.marker(latLngs[0], {
+                icon: L.divIcon({
+                    html: '<i class="fas fa-home" style="color: #e74c3c; font-size: 16px;"></i>',
+                    iconSize: [16, 16],
+                    className: 'map-icon'
+                })
+            }).addTo(routeMap).bindPopup("Base Station");
+            
+            // Add town markers
+            for (let i = 1; i < latLngs.length - 1; i++) {
+                L.marker(latLngs[i], {
+                    icon: L.divIcon({
+                        html: '<i class="fas fa-map-marker-alt" style="color: #3498db; font-size: 16px;"></i>',
+                        iconSize: [16, 16],
+                        className: 'map-icon'
+                    })
+                }).addTo(routeMap);
+            }
+            
+            // Draw route
+            L.polyline(latLngs, {color: '#e74c3c'}).addTo(routeMap);
+            
+            // Fit bounds
+            routeMap.fitBounds(latLngs);
+        }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
